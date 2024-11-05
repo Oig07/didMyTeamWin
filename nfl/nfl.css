@@ -97,6 +97,7 @@ body{
 /* Pick Your Team Container */
 .pickYourTeamContainer{
     left: 50%;
+    padding: 100px 0 0 0;
     position: fixed;
     top: 15%;
     text-align: center;
@@ -115,13 +116,13 @@ body{
     border-radius: 5px;
     font: inherit;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 16px 24px;
 }
 
 .team-item {
     border: 1px solid #ddd;
     display: flex;
-    margin: 5px 0;
+    margin: 8px 0;
     
 }
 
@@ -130,6 +131,16 @@ display: none;
 height: auto;
 margin-left: auto;
 margin-right: auto;
-margin-top: 10px;
+margin-top: 16px;
 width: 150px;
+}
+
+.dytwContent{
+    font: inhert;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.game-list{
+    list-style-type: none !important;
 }
