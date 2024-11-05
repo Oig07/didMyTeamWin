@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"/>
+    <title>Did My Team Win?</title>
+</head>
+<body>
+    <div class="homeSideBarContainer">
+        <ul class="homeSideBar">
+            <li class="listItem">
+                <a class="active" href="/home/home.html">DMTW</a>
+            </li>
+            <li class="listItem">
+                <a href="/nfl/nfl.html">NFL</a>
+            </li>
+            <li class="listItem">
+                <a href="/nba/nba.html">NBA</a>
+            </li>
+            <li class="listItem">
+                <a href="/mlb/mlb.html">MLB</a>
+            </li>
+            <li class="listItem">
+                <a href="/nhl/nhl.html">NHL</a>
+            </li>
+        </ul>
+    </div>
+    <div class="homeOpener">
+        <h1>Welcome to Did My Team Win?</h1>
+        <p>
+            Here you'll be able to answer the simple question -  Did my team win their last game?
+        </p>
+        <p>
+            Click the league of the team you're looking for, and find your latest score.
+        </p>
+    </div>
+    <section class="gamesThisWeek">
+        <div class="globalPadding">
+            <div class="xxlargeSectionPadding">
+                <div class="gtwWrapper">
+                    <div class="gtwContent">
+                        <h1>Latest NFL Games</h1>
+                        <ul class="gtwList" id="nfl"></ul>
+                    </div>
+                    <div class="gtwContent">
+                        <h1>Latest NBA Games</h1>
+                        <ul class="gtwList" id="nba"></ul>
+                    </div>
+                    <div class="gtwContent">
+                        <h1>Lastest MLB Games</h1>
+                        <ul class="gtwList" id="mlb"></ul>
+                    </div>
+                    <div class="gtwContent">
+                        <h1>Latest NHL Games</h1>
+                        <ul class="gtwList" id="nhl"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="home.js"></script>
+    <script src="http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"></script>
+    <script src="http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard"></script>
+</body>
+</html>

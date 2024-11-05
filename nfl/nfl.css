@@ -1,0 +1,113 @@
+/* Global CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.9;
+    background-color: #f3f3f3;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* Padding */
+.globalPadding{
+    padding: 0 24px 0 24px;
+}
+
+.homeSideBarPadding{
+    padding: 36px 0 0 0;
+}
+
+
+/* Home Page Side Bar */
+.homeSideBarContainer{
+    background-color: #93DF8C;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: fit-content;
+    max-width: max-content;
+}
+
+.homeSideBar{
+    color: #070707;
+    list-style-type: none;
+}
+
+.listItem{
+    font-size: 32px;
+    font-weight: bold;
+    padding: 16px;
+}
+
+.listItem a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.listItem a:hover{
+    cursor: pointer;
+    color:#46AA3B;
+}
+
+.listItem a.active{
+    color: #46AA3B;
+}
+
+.listItem a:hover:not(.active){
+    color: #46aa3b
+}
+
+
+/* Pick Your Team Container */
+.pickYourTeamContainer{
+    left: 50%;
+    position: fixed;
+    top: 15%;
+    text-align: center;
+    transform: translate(-50%, -50%)
+}
+
+
+
+/* Team List */
+.pytDropdown{
+    text-align: center;
+}
+
+.team-list{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.team-item {
+    border: 1px solid #ddd;
+    display: flex;
+    margin: 5px 0;
+    
+}
+
+.team-logo{
+display: none;
+height: auto;
+margin-left: auto;
+margin-right: auto;
+margin-top: 10px;
+width: 150px;
+}

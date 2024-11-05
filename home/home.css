@@ -1,0 +1,153 @@
+/* Global CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.9;
+    background-color: #f3f3f3;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* Padding */
+.globalPadding{
+    padding: 0 24px 0 24px;
+}
+
+.smallSectionPadding{
+    padding: 24px 0 24px 0;
+}
+
+.mediumSectionPadding{
+    padding: 32px 0 32px 0;
+}
+
+.largeSectionPadding{
+    padding: 40px 0 40px 0;
+}
+
+.xlargeSectionPadding{
+    padding: 48px 0 48px 0;
+}
+
+.xxlargeSectionPadding{
+    padding: 56px 0 56px 0;
+}
+
+.homeSideBarPadding{
+    padding: 64px 0 64px 0;
+}
+
+
+/* Home Page Side Bar */
+.homeSideBarContainer{
+    background-color: #93DF8C;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: fit-content;
+    max-width: max-content;
+}
+
+.homeSideBar{
+    color: #070707;
+    list-style-type: none;
+}
+
+.listItem{
+    font-size: 32px;
+    font-weight: bold;
+    padding: 16px;
+}
+
+.listItem a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.listItem a:hover{
+    cursor: pointer;
+    color:#46AA3B;
+}
+
+.listItem a.active{
+    color: #46AA3B;
+}
+
+.listItem a:hover:not(.active){
+    color: #46aa3b
+}
+
+/* Home Page Opening Statement */
+.homeOpener{
+    left: 50%;
+    position: absolute;
+    top: 35%;
+    text-align: center;
+    transform: translate(-50%, -50%)
+}
+
+.homeOpener h1{
+    font-size: 40px;
+}
+
+.homeOpener p{
+    font-size: 20px;
+}
+
+/* Games This Week */
+.gtwWrapper{
+    align-items: start;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    width: 100%;
+}
+
+.gtwContent{
+    display: block;
+    padding: 0 52px 0 52px;
+    text-align: center;
+}
+
+.gtwList{
+    list-style-type: none;
+    text-align: center;
+}
+
+.gtwGame{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding: 12px;
+    transition: box-shadow 0.3s ease;
+}
+
+@media (max-wdith: 748px){
+    .gtwWrapper{
+        grid-template-columns: repeat (2, 1fr); /* 2 column for smaller screens */
+    }
+}
+
+@media (max-width: 480px){
+    .gtwWrapper{
+        grid-template-columns: 1fr; /* 1 column for mobile devices */
+    }
+}

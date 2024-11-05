@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nfl.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"/>
+    <title>DMTW NFL</title>
+</head>
+<body>
+    <div class="homeSideBarContainer">
+        <ul class="homeSideBar">
+            <li class="listItem">
+                <a href="/home/home.html">DMTW</a>
+            </li>
+            <li class="listItem">
+                <a class="active" href="/nfl/nfl.html">NFL</a>
+            </li>
+            <li class="listItem">
+                <a href="/nba/nba.html">NBA</a>
+            </li>
+            <li class="listItem">
+                <a href="/mlb/mlb.html">MLB</a>
+            </li>
+            <li class="listItem">
+                <a href="/nhl/nhl.html">NHL</a>
+            </li>
+        </ul>
+    </div>
+    <div class="pickYourTeamContainer">
+        <div class="pytDropdown">
+            <h1>Pick Your Team</h1>
+            <select class="team-list" id="team-list">
+                <option value="" disabled selected>Select a team</option>
+            </select>
+            <img id="team-logo" class="team-logo"
+        </div>
+    </div>
+    <script src="nfl.js"></script>
+    <script src="https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"></script>
+</body>
+</html>
