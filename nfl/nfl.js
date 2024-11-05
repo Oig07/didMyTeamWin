@@ -78,13 +78,14 @@ async function fetchScoreboard(teamAbbr) {
         // Fetch the team's shortDisplayName
         const selectedTeamShortName = await fetchTeamInfo(teamAbbr);
 
-        // Check if the team is on a BYE week
+        // Check if team is OFF
         if (games.length === 0) {
             const byeItem = document.createElement('li');
-            byeItem.textContent = `The ${selectedTeamShortName} are on a BYE week`;
+            byeItem.textContent = `The ${selectedTeamShortName} are off on their BYE week.`;
             gameList.appendChild(byeItem);
             return; // Exit early since the team has no games this week
         }
+
 
         // Display the game details and check if the selected team won
         games.forEach(game => {
@@ -97,6 +98,33 @@ async function fetchScoreboard(teamAbbr) {
 
             const selectedTeamScore = parseInt(selectedTeamCompetitor.score, 10);
             const opponentScore = parseInt(opponentCompetitor.score, 10);
+
+            //Format Time
+            function parseTimeInEST(dateString) {
+                // Parse the date string into a JavaScript Date object
+                const date = new Date(dateString);
+            
+                // Create options to only format the time part in EST
+                const options = {
+                    timeZone: 'America/New_York',  // Timezone for EST (or EDT depending on the time of year)
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true // 12-hour format with AM/PM
+                };
+            
+                // Format the time part to EST using toLocaleTimeString
+                const estTime = date.toLocaleTimeString('en-US', options);
+                return estTime;
+            }
+
+            // Check if Game Status = Scheduled
+        if(data.events[0].status.type.description === "Scheduled"){
+            const scheduleItem = document.createElement('li');
+            const gameDate = parseTimeInEST(data.events[0].date)
+            scheduleItem.textContent = `The ${selectedTeamShortName} are scheduled to play against the ${opponentCompetitor.team.shortDisplayName} today at ${gameDate} EST.`
+            gameList.appendChild(scheduleItem);
+            return;
+        }
 
             // Determine the game result text
             let resultText = "";
