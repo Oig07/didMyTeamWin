@@ -27,6 +27,26 @@ body{
     padding: 0 24px 0 24px;
 }
 
+.smallSectionPadding{
+    padding: 20px 0 20px 0;
+}
+
+.mediumSectionPadding{
+    padding: 40px 0 40px 0;
+}
+
+.largeSectionPaddion{
+    padding: 60px 0 60px 0;
+}
+
+.xlargeSectionPadding{
+    padding: 80px 0 80px 0;
+}
+
+.xxlargeSectionPadding{
+    padding: 100px 0 100px 0;
+}
+
 .homeSideBarPadding{
     padding: 36px 0 0 0;
 }
