@@ -21,6 +21,9 @@ body{
     padding: 0px;
 }
 
+/* Home Side Bar Global Variabels */
+
+
 
 /* Padding */
 .globalPadding{
@@ -51,47 +54,6 @@ body{
     padding: 64px 0 64px 0;
 }
 
-
-/* Home Page Side Bar */
-.homeSideBarContainer{
-    background-color: #93DF8C;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    height: fit-content;
-    max-width: max-content;
-}
-
-.homeSideBar{
-    color: #070707;
-    list-style-type: none;
-}
-
-.listItem{
-    font-size: 32px;
-    font-weight: bold;
-    padding: 16px;
-}
-
-.listItem a{
-    text-decoration: none;
-    color: inherit;
-}
-
-.listItem a:hover{
-    cursor: pointer;
-    color:#46AA3B;
-}
-
-.listItem a.active{
-    color: #46AA3B;
-}
-
-.listItem a:hover:not(.active){
-    color: #46aa3b
-}
 
 /* Home Page Opening Statement */
 .homeOpener{
