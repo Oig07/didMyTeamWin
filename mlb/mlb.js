@@ -4,7 +4,7 @@
 const apiURL = "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams";
 const mlbApiUrl="http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard";
 
-// Function to fetch NBA teams
+// Function to fetch MLB teams
 async function fetchMLBTeams(){
     try{
         const response = await fetch(apiURL);
@@ -42,7 +42,7 @@ async function fetchMLBTeams(){
             }
         });
     } catch(error){
-        console.error('Error fetching NBA Teams:', error);
+        console.error('Error fetching MLB Teams:', error);
 }
 }
 async function fetchTeamInfo(teamAbbr) {
@@ -86,7 +86,7 @@ async function fetchScoreboard(teamAbbr) {
         // Check if the team is OFF
         if (games.length === 0) {
             const byeItem = document.createElement('li');
-            byeItem.textContent = `The ${selectedTeamShortName} do not play today.`;
+            byeItem.textContent = `The ${selectedTeamShortName} are not playing today.`;
             gameList.appendChild(byeItem);
             return; // Exit early since the team has no games this week
         }
@@ -121,26 +121,43 @@ async function fetchScoreboard(teamAbbr) {
                 return estTime;
             }
 
-            // Check if Game Status = Scheduled
-        if(data.events[0].status.type.description === "Scheduled"){
-            const scheduleItem = document.createElement('li');
-            const gameDate = parseTimeInEST(data.events[0].date)
-            scheduleItem.textContent = `The ${selectedTeamShortName} are scheduled to play against the ${opponentCompetitor.team.shortDisplayName} today at ${gameDate} EST.`
-            gameList.appendChild(scheduleItem);
-            return;
-        }
-
-            // Determine the game result text
-            let resultText = "";
-            if (selectedTeamScore > opponentScore) {
-                resultText = `The ${selectedTeamCompetitor.team.shortDisplayName} win over the ${opponentCompetitor.team.shortDisplayName}! Final Score: `;
-            } else if (selectedTeamScore < opponentScore) {
-                resultText = `The ${selectedTeamCompetitor.team.shortDisplayName} lose to the ${opponentCompetitor.team.shortDisplayName}! Final Score: `;
-            } else {
-                resultText = `The ${selectedTeamCompetitor.team.shortDisplayName} tie with the ${opponentCompetitor.team.shortDisplayName}! Final Score: `;
+            function getOrdinalPeriod(period){
+                switch(period){
+                    case 1: return "1st";
+                    case 2: return "2nd";
+                    case 3: return "3rd";
+                    case 4: return "4th";
+                    default: return `${period}th`
+                }
             }
 
-            gameItem.textContent = `${resultText} (${selectedTeamScore} - ${opponentScore})`;
+            const gameStatus = game.status.type.description;
+            const gamePeriod = game.status.period;
+            const gameOrdinalPeriod = getOrdinalPeriod(gamePeriod);
+            const gameClock = game.status.displayClock;
+
+            if (gameStatus === "Scheduled") {
+                const gameDate = parseTimeInEST(game.date);
+                gameItem.innerHTML = `The ${selectedTeamShortName} are scheduled to play against the ${opponentCompetitor.team.shortDisplayName} today at ${gameDate} EST.`;
+            } else if (gameStatus === "In Progress") {
+                // Display a message for ongoing games
+                gameItem.innerHTML = `The ${selectedTeamShortName} are currently playing against the ${opponentCompetitor.team.shortDisplayName}. It is the ${gameOrdinalPeriod} Inning. <br>Current Score: ${selectedTeamShortName} (${selectedTeamScore}) - ${opponentCompetitor.team.shortDisplayName} (${opponentScore}).`;
+
+            } else if (gameStatus === "End of Period"){
+                // Display a message when games are inbetween periods
+                gameItem.innerHTML = `It is the end of the ${gameOrdinalPeriod} Inning. The ${selectedTeamShortName} are currently playing against the ${opponentCompetitor.team.shortDisplayName}. <br>Current Score: ${selectedTeamShortName} (${selectedTeamScore}) - ${opponentCompetitor.team.shortDisplayName} (${opponentScore}). `
+
+            } else {
+                let resultText = "";
+                if (selectedTeamScore > opponentScore) {
+                    resultText = `The ${selectedTeamCompetitor.team.shortDisplayName} beat the ${opponentCompetitor.team.shortDisplayName}! Final Score: `;
+                } else if (selectedTeamScore < opponentScore) {
+                    resultText = `The ${selectedTeamCompetitor.team.shortDisplayName} lost to the ${opponentCompetitor.team.shortDisplayName}! Final Score: `;
+                } else {
+                    resultText = `The ${selectedTeamCompetitor.team.shortDisplayName} tied with the ${opponentCompetitor.team.shortDisplayName}! Final Score: `;
+                }
+                gameItem.textContent = `${resultText} (${selectedTeamScore} - ${opponentScore})`;
+            }
             gameList.appendChild(gameItem);
         });
 
