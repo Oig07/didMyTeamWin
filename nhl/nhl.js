@@ -4,7 +4,7 @@
 const apiURL = "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams";
 const nhlApiUrl="http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard"
 
-// Function to fetch NBA teams
+// Function to fetch NHL teams
 async function fetchNHLTeams(){
     try{
         const response = await fetch(apiURL);
@@ -42,7 +42,7 @@ async function fetchNHLTeams(){
             }
         });
     } catch(error){
-        console.error('Error fetching NBA Teams:', error);
+        console.error('Error fetching NHL Teams:', error);
 }
 }
 async function fetchTeamInfo(teamAbbr) {
