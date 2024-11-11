@@ -295,7 +295,7 @@ label[for=nav-toggle] {
 
 
 #nav-bar .fas {
-    min-width: 3rem;
+    min-width: 2rem;
     text-align: center;
 }
 
@@ -321,7 +321,7 @@ label[for=nav-toggle] {
 
 #nav-footer-avatar {
     position: relative;
-    margin: 12px 0 12px 16px;
+    margin: 11px 0 11px 16px;
     left: 0;
     width: 32px;
     height: 32px;
@@ -338,11 +338,11 @@ label[for=nav-toggle] {
 #nav-footer-titlebox {
     position: relative;
     margin-left: 16px;
-    width: 100px;
+    width: 10px;
     display: flex;
     flex-direction: column;
     transition: opacity 1s;
-    font-size: 12px;
+    font-size: small;
     font-weight: bold;
 }
 
