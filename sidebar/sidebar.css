@@ -3,10 +3,11 @@
     --background: #f3f3f3;
     --navbar-width: 256px;
     --navbar-width-min: 80px;
-    --navbar-dark-primary: #9BBE97;
-    --navbar-dark-secondary: #7c9879;
-    --navbar-light-primary: #f3f3f3;
-    --navbar-light-secondary: #c2c2c2;
+    --navbar-dark-primary: #B7B7B7;
+    --navbar-dark-secondary: #858585;
+    --navbar-light-primary: #2A2828;
+    --navbar-light-secondary: #262626;
+    --navbar-hover: #9989B6;
 }
 
 html,
@@ -72,7 +73,7 @@ body {
     position: absolute;
     left: 1vw;
     top: 1vw;
-    height: calc(100% - 2vw);
+    height: calc(100% - 28vw);
     background: var(--navbar-dark-primary);
     border-radius: 16px;
     display: flex;
@@ -242,7 +243,7 @@ label[for=nav-toggle] {
 }
 
 .nav-button:nth-of-type(1):hover {
-    color: var(--navbar-dark-primary);
+    color: var(--navbar-hover);
 }
 
 .nav-button:nth-of-type(1):hover~#nav-content-highlight {
@@ -250,7 +251,7 @@ label[for=nav-toggle] {
 }
 
 .nav-button:nth-of-type(2):hover {
-    color: var(--navbar-dark-primary);
+    color: var(--navbar-hover);
 }
 
 .nav-button:nth-of-type(2):hover~#nav-content-highlight {
@@ -258,7 +259,7 @@ label[for=nav-toggle] {
 }
 
 .nav-button:nth-of-type(3):hover {
-    color: var(--navbar-dark-primary);
+    color: var(--navbar-hover);
 }
 
 .nav-button:nth-of-type(3):hover~#nav-content-highlight {
@@ -266,44 +267,13 @@ label[for=nav-toggle] {
 }
 
 .nav-button:nth-of-type(4):hover {
-    color: var(--navbar-dark-primary);
+    color: var(--navbar-hover);
 }
 
 .nav-button:nth-of-type(4):hover~#nav-content-highlight {
     top: 178px;
 }
 
-.nav-button:nth-of-type(5):hover {
-    color: var(--navbar-dark-primary);
-}
-
-.nav-button:nth-of-type(5):hover~#nav-content-highlight {
-    top: 232px;
-}
-
-.nav-button:nth-of-type(6):hover {
-    color: var(--navbar-dark-primary);
-}
-
-.nav-button:nth-of-type(6):hover~#nav-content-highlight {
-    top: 286px;
-}
-
-.nav-button:nth-of-type(7):hover {
-    color: var(--navbar-dark-primary);
-}
-
-.nav-button:nth-of-type(7):hover~#nav-content-highlight {
-    top: 340px;
-}
-
-.nav-button:nth-of-type(8):hover {
-    color: var(--navbar-dark-primary);
-}
-
-.nav-button:nth-of-type(8):hover~#nav-content-highlight {
-    top: 394px;
-}
 
 #nav-bar .fas {
     min-width: 3rem;
