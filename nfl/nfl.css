@@ -40,27 +40,27 @@ body {
 }
 
 .smallSectionPadding {
-    padding: 20px 0 20px 0;
-}
-
-.mediumSectionPadding {
     padding: 40px 0 40px 0;
 }
 
-.largeSectionPaddion {
-    padding: 60px 0 60px 0;
-}
-
-.xlargeSectionPadding {
+.mediumSectionPadding {
     padding: 80px 0 80px 0;
 }
 
-.xxlargeSectionPadding {
-    padding: 100px 0 100px 0;
+.largeSectionPaddion {
+    padding: 120px 0 120px 0;
 }
 
-.homeSideBarPadding {
-    padding: 36px 0 0 0;
+.xlargeSectionPadding {
+    padding: 160px 0 160px 0;
+}
+
+.xxlargeSectionPadding {
+    padding: 200px 0 200px 0;
+}
+
+.xxxlargeSectionPadding {
+    padding: 240px 0 240px 0;
 }
 
 
@@ -337,38 +337,6 @@ label[for=nav-toggle] {
 }
 
 .nav-button:nth-of-type(4):hover~#nav-content-highlight {
-    top: 178px;
-}
-
-.nav-buttonNotActive:nth-of-type(1):hover {
-    color: var(--navbar-hover);
-}
-
-.nav-buttonNotActive:nth-of-type(1):hover~#nav-content-highlight {
-    top: 16px;
-}
-
-.nav-buttonNotActive:nth-of-type(2):hover {
-    color: var(--navbar-hover);
-}
-
-.nav-buttonNotActive:nth-of-type(2):hover~#nav-content-highlight {
-    top: 70px;
-}
-
-.nav-buttonNotActive:nth-of-type(3):hover {
-    color: var(--navbar-hover);
-}
-
-.nav-buttonNotActive:nth-of-type(3):hover~#nav-content-highlight {
-    top: 124px;
-}
-
-.nav-buttonNotActive:nth-of-type(4):hover {
-    color: var(--navbar-hover);
-}
-
-.nav-buttonNotActive:nth-of-type(4):hover~#nav-content-highlight {
     top: 178px;
 }
 

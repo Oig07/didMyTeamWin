@@ -8,24 +8,22 @@
     <title>DMTW NFL</title>
 </head>
 <body>
-    <div class="homeSideBarContainer">
-        <ul class="homeSideBar">
-            <li class="listItem">
-                <a href="/home/home.html">DMTW</a>
-            </li>
-            <li class="listItem">
-                <a href="/nfl/nfl.html">NFL</a>
-            </li>
-            <li class="listItem">
-                <a class="active" href="/nba/nba.html">NBA</a>
-            </li>
-            <li class="listItem">
-                <a href="/mlb/mlb.html">MLB</a>
-            </li>
-            <li class="listItem">
-                <a href="/nhl/nhl.html">NHL</a>
-            </li>
-        </ul>
+    <div id="nav-bar"><input id="nav-toggle" type="checkbox" />
+        <div id="nav-header"><a id="nav-title" href="/home/home.html"><i class="fab fa-codepen"></i>DMTW</a><label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
+            <hr/>
+        </div>
+        <div id="nav-content">
+            <div class="nav-button"><img width="28" height="28" src="https://img.icons8.com/material/32/american-football.png" alt="american-football"/><span><a href="/nfl/nfl.html">NFL</a></span></div>
+            <div class="nav-button"><img width="28" height="28" src="https://img.icons8.com/material/28/basketball-2.png" alt="basketball-2"/><span><a href="/nba/nba.html">NBA</a></span></div>
+            <div class="nav-button"><img width="28" height="28" src="https://img.icons8.com/material-sharp/24/baseball-player.png" alt="baseball-player"/><span><a href="/mlb/mlb.html">MLB</a></span></div>
+            <div class="nav-button"><img width="28" height="28" src="https://img.icons8.com/material/28/hockey.png" alt="hockey"/><span><a href="/nhl/nhl.html">NHL</a></span></div>
+            <div id="nav-content-highlight"></div>
+        </div><input id="nav-footer-toggle" type="checkbox" />
+        <div id="nav-footer">
+            <div id="nav-footer-heading">
+                <div id="nav-footer-avatar"><img src="https://avatars.githubusercontent.com/u/187350841?v=4" /></div>
+                <div id="nav-footer-titlebox"><a id="nav-footer-title" href="https://github.com/Oig07" target="_blank">Github</a><span id="nav-footer-subtitle">@oig07</span></div><label for="nav-footer-toggle"></label></div>
+        </div>
     </div>
     <div class="pickYourTeamContainer">
         <div class="pytDropdown">
