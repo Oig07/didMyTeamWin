@@ -1,7 +1,7 @@
 "use strict";
 
 // Function to fetch NFL teams
-import { fetchNFLTeams, fetchTeamInfo } from './fetchNFLTeams.js';
+import { fetchNFLTeams} from './fetchNFLTeams.js';
 import { populateTeamList, displayTeamLogo } from './fetchNFLTeamsDOMUtils.js';
 import { fetchScoreboard } from './nflScoreboard.js';
 
@@ -32,14 +32,4 @@ async function initializeNFLTeams() {
     }
 }
 
-// Example usage of fetchTeamInfo:
-async function displayTeamInfo(teamAbbr) {
-    try {
-        const teamName = await fetchTeamInfo(apiURL, teamAbbr);
-        console.log(`Team name for ${teamAbbr}: ${teamName}`);
-    } catch (error) {
-        console.error('Error displaying team information:', error);
-    }
-}
-displayTeamInfo();
 initializeNFLTeams();
