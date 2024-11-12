@@ -24,12 +24,11 @@ async function initializeNFLTeams() {
                 const logoUrl = selectedTeam.team.logos.length > 0 ? selectedTeam.team.logos[0].href : '';
                 displayTeamLogo(logoUrl);
 
-                await fetchScoreboard(nflApiUrl,selectedTeam.team.abbreviation); // Ensure fetchScoreboard is imported or defined
+                await fetchScoreboard(nflApiUrl,selectedTeam.team.abbreviation);
             }
         });
     } catch (error) {
         console.error('Error initializing NFL Teams:', error);
     }
 }
-
 initializeNFLTeams();

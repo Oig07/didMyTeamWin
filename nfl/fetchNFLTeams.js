@@ -21,10 +21,10 @@ export async function fetchTeamInfo(apiURL, teamAbbr) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        if(data.teams){
-            const team = data.teams.find(t => t.team.abbreviation === teamAbbr);
-            return team ? team.team.shortDisplayName : teamAbbr; // Return short name or abbreviation if not found
-        }
+        
+        // Modify the path based on what you find in the response structure
+        const team = data.sports[0].leagues[0].teams.find(t => t.team.abbreviation === teamAbbr);
+        return team ? team.team.shortDisplayName : teamAbbr; // Return short name or abbreviation if not found
     } catch (error) {
         console.error('Error fetching team information:', error);
         return teamAbbr; // Fallback to abbreviation if there's an error

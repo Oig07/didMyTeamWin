@@ -2,7 +2,6 @@ import { fetchTeamInfo } from './fetchNFLTeams.js';
 import { parseTimeInEST, getOrdinalPeriod } from './nflUtilities.js';
 
 const apiURL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams";
-const nflApiUrl="http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard";
 
 export async function fetchScoreboard(nflApiUrl, teamAbbr) {
     try {
@@ -12,22 +11,37 @@ export async function fetchScoreboard(nflApiUrl, teamAbbr) {
         }
 
         const data = await response.json();
-        console.log(data);
+        console.log('Teams on BYE: ', data.week.teamsOnBye);
+
+        // Check if on BYE
+        const isOnBye = data.week.teamsOnBye.some(team => Object.values(team).includes(teamAbbr));
 
         const gameList = document.getElementById('game-list');
         gameList.innerHTML = ''; // Clear any previous games
 
+        const selectedTeamShortName = await fetchTeamInfo(apiURL, teamAbbr);
+
+        if(isOnBye){
+            // Create and Append BYE Message
+            const byeItem = document.createElement('li');
+            byeItem.textContent = `The ${selectedTeamShortName} are on a BYE this week.`;
+            gameList.appendChild(byeItem);
+            return; 
+        }
+
+        // Proceed to remaining games
         const games = data.events.filter(event => {
             const teamNames = event.competitions[0].competitors.map(comp => comp.team.abbreviation);
             return teamNames.includes(teamAbbr);
         });
 
-        const selectedTeamShortName = await fetchTeamInfo(nflApiUrl, teamAbbr);
-
         if (games.length === 0) {
-            createByeItem(gameList, selectedTeamShortName);
+            const noGamesItem = document.createElement('li');
+            noGamesItem.textContent = `No scheduled games for the ${selectedTeamShortName} this week.`;
+            gameList.appendChild(noGamesItem);
             return;
         }
+
 
         games.forEach(game => {
             const gameItem = createGameItem(game, teamAbbr, selectedTeamShortName);
@@ -39,11 +53,6 @@ export async function fetchScoreboard(nflApiUrl, teamAbbr) {
     }
 }
 
-function createByeItem(gameList, teamName) {
-    const byeItem = document.createElement('li');
-    byeItem.textContent = `The ${teamName} are on a BYE this week.`;
-    gameList.appendChild(byeItem);
-}
 
 function createGameItem(game, teamAbbr, teamShortName) {
     const gameItem = document.createElement('li');
