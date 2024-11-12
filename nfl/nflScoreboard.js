@@ -11,7 +11,7 @@ export async function fetchScoreboard(nflApiUrl, teamAbbr) {
         }
 
         const data = await response.json();
-        console.log('Teams on BYE: ', data.week.teamsOnBye);
+        console.log(data);
 
         // Check if on BYE
         const isOnBye = data.week.teamsOnBye.some(team => Object.values(team).includes(teamAbbr));
@@ -74,6 +74,8 @@ function createGameItem(game, teamAbbr, teamShortName) {
         gameItem.innerHTML = `The ${teamShortName} are scheduled to play against the ${opponentCompetitor.team.shortDisplayName} today at ${gameDate} EST.`;
     } else if (gameStatus === "In Progress") {
         gameItem.innerHTML = `The ${teamShortName} are currently playing against the ${opponentCompetitor.team.shortDisplayName}. There is ${gameClock} left in the ${gameOrdinalPeriod} Quarter. <br>Current Score: ${teamShortName} (${selectedTeamScore}) - ${opponentCompetitor.team.shortDisplayName} (${opponentScore}).`;
+    } else if (gameStatus === "Halftime") {
+        gameItem.innerHTML = `It is Halftime. The ${teamShortName} are currently playing against the ${opponentCompetitor.team.shortDisplayName}. <br>Current Score: ${teamShortName} (${selectedTeamScore}) - ${opponentCompetitor.team.shortDisplayName} (${opponentScore}).`;
     } else if (gameStatus === "End of Period") {
         gameItem.innerHTML = `It is the end of the ${gameOrdinalPeriod} Quarter. The ${teamShortName} are currently playing against the ${opponentCompetitor.team.shortDisplayName}. <br>Current Score: ${teamShortName} (${selectedTeamScore}) - ${opponentCompetitor.team.shortDisplayName} (${opponentScore}).`;
     } else {
